@@ -124,7 +124,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2013-03-27" "gcc-4.8.1" "GNU"
+.TH GCC 1 "2013-07-05" "gcc-4.8.2" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -667,7 +667,8 @@ in the following sections.
 \&\-mcmodel=\fR\fIcode-model\fR \fB\-mabi=\fR\fIname\fR \fB\-maddress\-mode=\fR\fImode\fR 
 \&\fB\-m32 \-m64 \-mx32 \-mlarge\-data\-threshold=\fR\fInum\fR 
 \&\fB\-msse2avx \-mfentry \-m8bit\-idiv 
-\&\-mavx256\-split\-unaligned\-load \-mavx256\-split\-unaligned\-store\fR
+\&\-mavx256\-split\-unaligned\-load \-mavx256\-split\-unaligned\-store 
+\&\-mstack\-protector\-guard=\fR\fIguard\fR
 .Sp
 \&\fIi386 and x86\-64 Windows Options\fR
 \&\fB\-mconsole \-mcygwin \-mno\-cygwin \-mdll 
@@ -7479,7 +7480,7 @@ compiled.  All public functions and variables with the exception of \f(CW\*(C`ma
 and those merged by attribute \f(CW\*(C`externally_visible\*(C'\fR become static functions
 and in effect are optimized more aggressively by interprocedural optimizers.
 .Sp
-In combination with \f(CW\*(C`\-flto\*(C'\fR using this option should not be used.
+This option should not be used in combination with \f(CW\*(C`\-flto\*(C'\fR.
 Instead relying on a linker plugin should provide safer and more precise
 information.
 .IP "\fB\-flto[=\fR\fIn\fR\fB]\fR" 4
@@ -7734,6 +7735,9 @@ Use the \fBbfd\fR linker instead of the default linker.
 .IP "\fB\-fuse\-ld=gold\fR" 4
 .IX Item "-fuse-ld=gold"
 Use the \fBgold\fR linker instead of the default linker.
+.IP "\fB\-fuse\-ld=mcld\fR" 4
+.IX Item "-fuse-ld=mcld"
+Use the \fBmcld\fR linker instead of the default linker.
 .IP "\fB\-fcprop\-registers\fR" 4
 .IX Item "-fcprop-registers"
 After register allocation and post-register allocation instruction splitting,
@@ -10985,7 +10989,7 @@ points to.
 The startup code from libgcc never sets \f(CW\*(C`EIND\*(C'\fR.
 Notice that startup code is a blend of code from libgcc and AVR-LibC.
 For the impact of AVR-LibC on \f(CW\*(C`EIND\*(C'\fR, see the
-AVR-LibC\ user\ manual (\f(CW\*(C`http://nongnu.org/avr\-libc/user\-manual\*(C'\fR).
+AVR-LibC\ user\ manual (\f(CW\*(C`http://nongnu.org/avr\-libc/user\-manual/\*(C'\fR).
 .IP "\(bu" 4
 It is legitimate for user-specific startup code to set up \f(CW\*(C`EIND\*(C'\fR
 early, for example by means of initialization code located in
@@ -12865,9 +12869,14 @@ Intel Core i7 \s-1CPU\s0 with 64\-bit extensions, \s-1MMX\s0, \s-1SSE\s0, \s-1SS
 Intel Core \s-1CPU\s0 with 64\-bit extensions, \s-1MMX\s0, \s-1SSE\s0, \s-1SSE2\s0, \s-1SSE3\s0, \s-1SSSE3\s0,
 \&\s-1SSE4\s0.1, \s-1SSE4\s0.2, \s-1AVX\s0, \s-1AES\s0, \s-1PCLMUL\s0, \s-1FSGSBASE\s0, \s-1RDRND\s0 and F16C instruction
 set support.
+.IP "\fBcore\-avx2\fR" 4
+.IX Item "core-avx2"
+Intel Core \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE\s0, \s-1MMX\s0, \s-1SSE\s0, \s-1SSE2\s0, \s-1SSE3\s0, \s-1SSSE3\s0,
+\&\s-1SSE4\s0.1, \s-1SSE4\s0.2, \s-1AVX\s0, \s-1AVX2\s0, \s-1AES\s0, \s-1PCLMUL\s0, \s-1FSGSBASE\s0, \s-1RDRND\s0, \s-1FMA\s0, \s-1BMI\s0, \s-1BMI2\s0
+and F16C instruction set support.
 .IP "\fBatom\fR" 4
 .IX Item "atom"
-Intel Atom \s-1CPU\s0 with 64\-bit extensions, \s-1MMX\s0, \s-1SSE\s0, \s-1SSE2\s0, \s-1SSE3\s0 and \s-1SSSE3\s0
+Intel Atom \s-1CPU\s0 with 64\-bit extensions, \s-1MOVBE\s0, \s-1MMX\s0, \s-1SSE\s0, \s-1SSE2\s0, \s-1SSE3\s0 and \s-1SSSE3\s0
 instruction set support.
 .IP "\fBk6\fR" 4
 .IX Item "k6"
@@ -13722,6 +13731,12 @@ to 255, 8\-bit unsigned integer divide is used instead of
 .IX Item "-mavx256-split-unaligned-store"
 .PD
 Split 32\-byte \s-1AVX\s0 unaligned load and store.
+.IP "\fB\-mstack\-protector\-guard=\fR\fIguard\fR" 4
+.IX Item "-mstack-protector-guard=guard"
+Generate stack protection code using canary at \fIguard\fR.  Supported
+locations are \fBglobal\fR or \fBtls\fR per thread at \f(CW%gs:20\fR (the default).
+This option has effect only when \fB\-fstack\-protector\fR
+or \fB\-fstack\-protector\-all\fR is also specified.
 .PP
 These \fB\-m\fR switches are supported in addition to the above
 on x86\-64 processors in 64\-bit environments.

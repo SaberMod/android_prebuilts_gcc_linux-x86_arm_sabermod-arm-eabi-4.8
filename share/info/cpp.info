@@ -1734,11 +1734,10 @@ with `__FILE__' and `__LINE__', though.
      This macro is defined when the C++ compiler is in use.  You can use
      `__cplusplus' to test whether a header is compiled by a C compiler
      or a C++ compiler.  This macro is similar to `__STDC_VERSION__', in
-     that it expands to a version number.  A fully conforming
-     implementation of the 1998 C++ standard will define this macro to
-     `199711L'.  The GNU C++ compiler is not yet fully conforming, so
-     it uses `1' instead.  It is hoped to complete the implementation
-     of standard C++ in the near future.
+     that it expands to a version number.  Depending on the language
+     standard selected, the value of the macro is `199711L', as
+     mandated by the 1998 C++ standard, or `201103L', per the 2011 C++
+     standard.
 
 `__OBJC__'
      This macro is defined, with value 1, when the Objective-C compiler
@@ -5546,52 +5545,52 @@ Node: Concatenation58011
 Node: Variadic Macros61119
 Node: Predefined Macros65906
 Node: Standard Predefined Macros66494
-Node: Common Predefined Macros72431
-Node: System-specific Predefined Macros90054
-Node: C++ Named Operators92077
-Node: Undefining and Redefining Macros93041
-Node: Directives Within Macro Arguments95145
-Node: Macro Pitfalls96693
-Node: Misnesting97226
-Node: Operator Precedence Problems98338
-Node: Swallowing the Semicolon100204
-Node: Duplication of Side Effects102227
-Node: Self-Referential Macros104410
-Node: Argument Prescan106819
-Node: Newlines in Arguments110573
-Node: Conditionals111524
-Node: Conditional Uses113354
-Node: Conditional Syntax114712
-Node: Ifdef115032
-Node: If118193
-Node: Defined120497
-Node: Else121780
-Node: Elif122350
-Node: Deleted Code123639
-Node: Diagnostics124886
-Node: Line Control126433
-Node: Pragmas130237
-Node: Other Directives134993
-Node: Preprocessor Output136043
-Node: Traditional Mode139244
-Node: Traditional lexical analysis140302
-Node: Traditional macros142805
-Node: Traditional miscellany146607
-Node: Traditional warnings147604
-Node: Implementation Details149801
-Node: Implementation-defined behavior150422
-Ref: Identifier characters151174
-Node: Implementation limits154252
-Node: Obsolete Features156926
-Node: Differences from previous versions159814
-Node: Invocation164022
-Ref: Wtrigraphs168474
-Ref: dashMF173249
-Ref: fdollars-in-identifiers182980
-Node: Environment Variables192849
-Node: GNU Free Documentation License195815
-Node: Index of Directives220979
-Node: Option Index223059
-Node: Concept Index229462
+Node: Common Predefined Macros72336
+Node: System-specific Predefined Macros89959
+Node: C++ Named Operators91982
+Node: Undefining and Redefining Macros92946
+Node: Directives Within Macro Arguments95050
+Node: Macro Pitfalls96598
+Node: Misnesting97131
+Node: Operator Precedence Problems98243
+Node: Swallowing the Semicolon100109
+Node: Duplication of Side Effects102132
+Node: Self-Referential Macros104315
+Node: Argument Prescan106724
+Node: Newlines in Arguments110478
+Node: Conditionals111429
+Node: Conditional Uses113259
+Node: Conditional Syntax114617
+Node: Ifdef114937
+Node: If118098
+Node: Defined120402
+Node: Else121685
+Node: Elif122255
+Node: Deleted Code123544
+Node: Diagnostics124791
+Node: Line Control126338
+Node: Pragmas130142
+Node: Other Directives134898
+Node: Preprocessor Output135948
+Node: Traditional Mode139149
+Node: Traditional lexical analysis140207
+Node: Traditional macros142710
+Node: Traditional miscellany146512
+Node: Traditional warnings147509
+Node: Implementation Details149706
+Node: Implementation-defined behavior150327
+Ref: Identifier characters151079
+Node: Implementation limits154157
+Node: Obsolete Features156831
+Node: Differences from previous versions159719
+Node: Invocation163927
+Ref: Wtrigraphs168379
+Ref: dashMF173154
+Ref: fdollars-in-identifiers182885
+Node: Environment Variables192754
+Node: GNU Free Documentation License195720
+Node: Index of Directives220884
+Node: Option Index222964
+Node: Concept Index229367
 
 End Tag Table
