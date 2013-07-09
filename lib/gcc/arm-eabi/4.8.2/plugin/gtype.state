@@ -4,7 +4,7 @@
 ;;; Don't parse this file wihout knowing GCC gengtype internals.
 ;;; This file should be parsed by the same gengtype which wrote it.
 
-(!version  "4.8.2 20130707 (prerelease)")
+(!version  "4.8.2 20130709 (prerelease)")
 
 (!srcdir  "../.././../gcc/gcc-SaberMod/gcc")
 
@@ -17868,7 +17868,7 @@ nil 0 nil )
 (!type already_seen 708)
 )
  gc_pointed_to "constexpr_call"
-(!srcfileloc  "cp/semantics.c" 6423)
+(!srcfileloc  "cp/semantics.c" 6434)
 
 (!fields 4 
 (!pair  "fundef"
@@ -17876,38 +17876,38 @@ nil 0 nil )
 (!type struct 711 
 (!type already_seen 710)
  gc_pointed_to "constexpr_fundef"
-(!srcfileloc  "cp/semantics.c" 5756)
+(!srcfileloc  "cp/semantics.c" 5767)
 
 (!fields 2 
 (!pair  "decl"
 (!type already_seen 5)
 
-(!srcfileloc  "cp/semantics.c" 5754)
+(!srcfileloc  "cp/semantics.c" 5765)
 nil )
 (!pair  "body"
 (!type already_seen 5)
 
-(!srcfileloc  "cp/semantics.c" 5755)
+(!srcfileloc  "cp/semantics.c" 5766)
 nil ))
 nil 260 nil )
 )
 
-(!srcfileloc  "cp/semantics.c" 6407)
+(!srcfileloc  "cp/semantics.c" 6418)
 nil )
 (!pair  "bindings"
 (!type already_seen 5)
 
-(!srcfileloc  "cp/semantics.c" 6414)
+(!srcfileloc  "cp/semantics.c" 6425)
 nil )
 (!pair  "result"
 (!type already_seen 5)
 
-(!srcfileloc  "cp/semantics.c" 6419)
+(!srcfileloc  "cp/semantics.c" 6430)
 nil )
 (!pair  "hash"
 (!type already_seen 9)
 
-(!srcfileloc  "cp/semantics.c" 6422)
+(!srcfileloc  "cp/semantics.c" 6433)
 nil ))
 nil 260 nil )
 
@@ -25657,12 +25657,12 @@ nil )
 (!pair  "constexpr_call"
 (!type already_seen 708)
 
-(!srcfileloc  "cp/semantics.c" 6423)
+(!srcfileloc  "cp/semantics.c" 6434)
 nil )
 (!pair  "constexpr_fundef"
 (!type already_seen 711)
 
-(!srcfileloc  "cp/semantics.c" 5756)
+(!srcfileloc  "cp/semantics.c" 5767)
 nil )
 (!pair  "vec<deferred_access,va_gc>"
 (!type already_seen 712)
@@ -29604,7 +29604,7 @@ nil )
 (!pair  "constexpr_call_table"
 (!type already_seen 1361)
 
-(!srcfileloc  "cp/semantics.c" 6428)
+(!srcfileloc  "cp/semantics.c" 6439)
 
 (!options 
 (!option param_is type 
@@ -29615,7 +29615,7 @@ nil )
 (!pair  "constexpr_fundef_table"
 (!type already_seen 1363)
 
-(!srcfileloc  "cp/semantics.c" 5761)
+(!srcfileloc  "cp/semantics.c" 5772)
 
 (!options 
 (!option param_is type 
@@ -29641,7 +29641,7 @@ nil )
 (!pair  "last_error_tinst_level"
 (!type already_seen 722)
 
-(!srcfileloc  "cp/pt.c" 7926)
+(!srcfileloc  "cp/pt.c" 7927)
 nil )
 (!pair  "canonical_template_parms"
 (!type already_seen 45)
